@@ -24,6 +24,8 @@ const options = [
 const Translate = () => {
     const [language, setLanguage] = useState(options[0])
     const [text, setText] = useState('')
+    const [debouncedText, setDebouncedText] = useState(text)
+
     return (
         <div>
             <div className='ui form'>
@@ -40,6 +42,8 @@ const Translate = () => {
                 selected={language}
                 onSelectedChange={setLanguage}
                 options={options}
+                debouncedText={debouncedText}
+                setDebouncedText={setDebouncedText}
             />
             <hr />
             <Convert text={text} language={language} />
