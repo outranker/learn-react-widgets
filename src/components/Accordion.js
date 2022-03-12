@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
 
 const Accordion = ({ items }) => {
   const [activeIndex, setActiveIndex] = useState(null);
+
   const onTitleClick = (index) => {
     setActiveIndex(index);
   };

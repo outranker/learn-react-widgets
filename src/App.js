@@ -3,8 +3,8 @@ import Accordion from "./components/Accordion";
 import Search from "./components/Search";
 import Dropdown from "./components/Dropdown";
 import Translate from "./components/Translate";
-import Route from './components/Route'
-import Header from './components/Header'
+import Route from "./components/Route";
+import Header from "./components/Header";
 
 const items = [
   {
@@ -36,29 +36,30 @@ const options = [
   },
 ];
 
-export default () => {
-  const [selected, setSelected] = useState(options[0])
+const App = () => {
+  const [selected, setSelected] = useState(options[0]);
   return (
     <div className="ui center aligned container">
       <Header />
-      <Route path="/" >
+      <Route path="/">
         <Accordion items={items} />
-
       </Route>
-      <Route path="/list" >
+      <Route path="/list">
         <Search />
-
       </Route>
-      <Route path="/dropdown" >
-        <Dropdown options={options} label="Select a color" selected={selected} onSelectedChange={setSelected} />
-
+      <Route path="/dropdown">
+        <Dropdown
+          label="Select a color"
+          options={options}
+          selected={selected}
+          onSelectedChange={setSelected}
+        />
       </Route>
-      <Route path="/translate" >
+      <Route path="/translate">
         <Translate />
-
       </Route>
     </div>
   );
 };
 
-
+export default App;
